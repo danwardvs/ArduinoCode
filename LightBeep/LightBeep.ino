@@ -13,10 +13,10 @@ void setup()
 void loop()
 {
    
-    analogWrite(ledPin, analogRead(lightPin)/4);  //send the value to the ledPin. Depending on value of resistor 
+    //analogWrite(ledPin, analogRead(lightPin)/4);  //send the value to the ledPin. Depending on value of resistor 
                                                 //you have  to divide the value. for example, 
                                                 //with a 10k resistor divide the value by 2, for 100k resistor divide by 4.
-   if(analogRead(lightPin)>50){
+   if(analogRead(lightPin)>700){
        
        if(isLightOn==false){
         hasBeeped=false;
@@ -24,7 +24,7 @@ void loop()
        }
    }
 
-   if(analogRead(lightPin)<=50){
+   if(analogRead(lightPin)<=700){
         if(isLightOn==true){
           hasBeeped=false;
           isLightOn=false;
@@ -34,6 +34,8 @@ void loop()
       
       if(isLightOn)Serial.println("Light is on"); 
       if(!isLightOn)Serial.println("Light is off"); 
+      Serial.println(analogRead(lightPin)); 
+      
       
       for(int i=0; i<4; i++){
       digitalWrite(ledPin, HIGH);   // turn the LED on (HIGH is the voltage level)
