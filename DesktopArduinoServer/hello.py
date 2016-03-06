@@ -51,7 +51,8 @@ PASSWORD = raw_input("Enter your gmail password: ")
 
 
 while True:
-    
+
+        
         if check_mail() != 0:
                 data_to_send = "1"
                 ser.write(data_to_send.encode())
